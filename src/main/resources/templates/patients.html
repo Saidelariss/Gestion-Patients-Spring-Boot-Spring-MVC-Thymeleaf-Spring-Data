@@ -1,24 +1,30 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+                layout:decorate="template1">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="/webjars/bootstrap/5.2.3/css/bootstrap.min.css">
 </head>
 <body>
+<div layout:fragment="content1">
+
+
 <div class="container mt-2">
     <div class="card">
         <div class="card-header">Liste des patients</div>
         <div class="card-body">
             <form method="get" th:action="@{index}" >
-                <label>Key Word</label>
+                <label>Name</label>
                 <input type="text" name="keyword" th:value="${keyword}">
                 <button type="submit" class="btn btn-primary">Chercher</button>
             </form>
             <table class="table">
                 <thead>
                 <tr>
-                    <th>ID</th> <th>Nom</th> <th>Malade</th> <th>Date</th> <th>Score</th><th></th>
+                    <th>ID</th> <th>Nom</th> <th>Malade</th> <th>Date</th> <th>Score</th><th></th><th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -29,8 +35,14 @@
                     <td th:text="${p.datNaissance}"></td>
                     <td th:text="${p.score}"></td>
                     <td>
-                        <a onclick="return confirm('Etes vous sure')" class="btn btn-danger" th:href="@{delete(id=${p.id}, keyword=${keyword},page=${currentPage})}">
+                        <a onclick="return confirm('Etes vous sure ?')" class="btn btn-danger" th:href="@{delete(id=${p.id}, keyword=${keyword},page=${currentPage})}">
                             Delete
+                        </a>
+                    </td>
+
+                    <td>
+                        <a  class="btn btn-success" th:href="@{editPatient(id=${p.id}, page=${currentPage}, keyword=${keyword})}">
+                            Edit
                         </a>
                     </td>
 
@@ -42,7 +54,7 @@
                     <!-- th:class veut  dire que je veux appliquer des classes css suite à des condtitions -->
                     <a th:class="${status.index==currentPage?'btn btn-info ms-1':'btn btn-outline-info ms-1'}"
                     th:text="${status.index}"
-                    th:href="@{index(page=${status.index}, keyword=${ke})}"> </a>
+                    th:href="@{index(page=${status.index}, keyword=${keyword})}"> </a>
 
                 </li>
                 
@@ -53,6 +65,6 @@
     </div>
 </div>
 
-
+</div>
 </body>
 </html>
