@@ -22,7 +22,7 @@ import java.util.Date;
 import java.util.List;
 
 @Controller
-@AllArgsConstructor   //injection des dépendances en utilisant le constructeur avec parametre
+@AllArgsConstructor   //injection des dépendances en utilisant le constructeur avec paramètres
 public class PatientController {
     private PatientRepository patientRepository;
 

@@ -1,1 +1,2 @@
-# Spring-Boot-Spring-MVC-Thymeleaf-Spring-Data
+# Utilisation de Thymeleaf avec Spring MVC et Spring Data avec MySQL
+Ce projet a pour but de démontrer comment utiliser Thymeleaf avec Spring MVC et Spring Data pour accéder à une base de données MySQL.

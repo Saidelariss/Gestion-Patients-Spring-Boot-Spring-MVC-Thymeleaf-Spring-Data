@@ -51,7 +51,7 @@
             </table>
             <ul class="nav nav-pills">
                 <li th:each="page,status:${pages}">
-                    <!-- th:class veut  dire que je veux appliquer des classes css suite à des condtitions -->
+                    <!-- th:class veut  dire que je veux appliquer des classes css suite à des conditions -->
                     <a th:class="${status.index==currentPage?'btn btn-info ms-1':'btn btn-outline-info ms-1'}"
                     th:text="${status.index}"
                     th:href="@{index(page=${status.index}, keyword=${keyword})}"> </a>
